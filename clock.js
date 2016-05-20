@@ -8,11 +8,14 @@
   Ingame second(day) in real milliseconds: 5000/60 = 83.3333ms
 */
 
+
 var time = {
   "hour": 0,
   "minute": 0,
-  "second": 0
+  "second": 0,
+  "inputTime": 0
 }
+
 
 function updateClock (timeData) {
   $("#clock").html(toString(timeData))
@@ -27,7 +30,7 @@ function toString (timeData) {
 
   return string;
 }
-
+/*
 function startClock () {
   if (time.hour > 7 && time.hour < 22) { //day
     setTimeout(function () {
@@ -69,3 +72,4 @@ function tickSecond () {
       tickMinute();
     }
 }
+*/

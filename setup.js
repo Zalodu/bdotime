@@ -3,7 +3,7 @@ $(function () {
   initButtons();
 	getCookie();
   updateClock(time);
-  startClock();
+  //startClock();
 });
 
 function initButtons () {
@@ -28,9 +28,10 @@ function getCookie () {
   else openSetup();
 }
 
-function setCookie () {
-  Cookies.set('time', time, {expires: 365});
+function setCookie (timeData) {
+  Cookies.set('time', timeData, {expires: 365});
 }
+
 
 function openSetup() {
   $("#clockWrapper").hide();
@@ -40,6 +41,16 @@ function openSetup() {
 function addInput () {
   time.hour = $("#hourInput").val();
   time.minute = $("#minuteInput").val();
+  time.second = 0;
+  var currentDate = new Date();
+  var currentTime = currentDate.getTime();
+  time.inputTime = currentTime;
+
+  console.log(currentTime);
+  console.log(currentDate.getTime());
+  console.log(time.inputTime);
+
+  setCookie(time);
 
   $("#form").hide();
   $("#clockWrapper").show();
